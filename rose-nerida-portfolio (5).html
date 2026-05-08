@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rose Anne Nerida — Senior Admin & Billing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0C0F0A;
+  --bg2:#141710;
+  --bg3:#1C2018;
+  --surface:#222820;
+  --border:rgba(160,196,80,.18);
+  --border2:rgba(160,196,80,.32);
+  --green:#B8D96A;        /* brighter for readability */
+  --gdim:rgba(184,217,106,.1);
+  --gbright:rgba(184,217,106,.22);
+  --text:#F0F5E8;          /* brighter white */
+  --muted:#A8B89A;         /* was too dark before */
+  --dim:#6A7A5E;           /* mid-range for less important text */
+  --blue:#7EC8F0;          /* brighter blue */
+  --amber:#F0C060;         /* brighter amber */
+  --teal:#60D4BC;          /* brighter teal */
+  --red:#E08070;
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'IBM Plex Sans',sans-serif;
+  --head:'Syne',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;font-size:15px;line-height:1.7}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(184,217,106,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(184,217,106,.028) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;background:rgba(12,15,10,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem}
+.nav-logo{font-family:var(--mono);font-size:.8rem;color:var(--green);text-decoration:none;letter-spacing:.04em}
+.nav-logo span{color:var(--dim)}
+.nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.68rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#0C0F0A;font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:2px;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* UTIL */
+section,div.band{position:relative;z-index:1}
+.inner{max-width:1100px;margin:0 auto}
+.s-label{font-family:var(--mono);font-size:.67rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.s-label::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;flex-shrink:0}
+.s-title{font-family:var(--head);font-size:clamp(1.9rem,3vw,2.7rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;color:var(--text);margin-bottom:1.1rem}
+.s-sub{color:var(--muted);font-size:.93rem;max-width:52ch;line-height:1.9;font-weight:300}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.fade.in{opacity:1;transform:none}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:58px;display:flex;align-items:center;padding-left:2.5rem;padding-right:2.5rem}
+.hero-grid{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 355px;gap:4rem;align-items:center}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.67rem;color:var(--muted);letter-spacing:.06em;border:1px solid var(--border2);padding:5px 12px;border-radius:2px;background:var(--gdim);margin-bottom:1.5rem}
+.s-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 1.8s infinite;flex-shrink:0}
+.hero-name{font-family:var(--head);font-size:clamp(3rem,5.5vw,5rem);font-weight:700;line-height:.97;letter-spacing:-.02em;color:var(--text);margin-bottom:.5rem}
+.hero-name .g{color:var(--green)}
+.role-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.1rem 0 1.75rem}
+.rb{font-family:var(--mono);font-size:.67rem;font-weight:500;letter-spacing:.05em;padding:4px 11px;border-radius:2px}
+.rb.gr{background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.35)}
+.rb.am{background:rgba(240,192,96,.12);color:var(--amber);border:1px solid rgba(240,192,96,.32)}
+.rb.tl{background:rgba(96,212,188,.1);color:var(--teal);border:1px solid rgba(96,212,188,.3)}
+.rb.bl{background:rgba(126,200,240,.1);color:var(--blue);border:1px solid rgba(126,200,240,.3)}
+.hero-desc{font-size:.97rem;color:var(--muted);max-width:500px;line-height:1.88;font-weight:300;margin-bottom:2.2rem}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:11px 22px;border-radius:2px;text-decoration:none;transition:all .2s;cursor:pointer;border:none;display:inline-block}
+.btn-fill{background:var(--green);color:#0C0F0A}
+.btn-fill:hover{opacity:.85}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border2)}
+.btn-ghost:hover{color:var(--text);border-color:var(--green)}
+
+/* STATS CARD */
+.stats-card{background:var(--bg2);border:1px solid var(--border2);border-radius:4px;overflow:hidden}
+.sc-bar{background:var(--surface);padding:9px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.scd{width:9px;height:9px;border-radius:50%}
+.scd.r{background:#8B3A3A}.scd.y{background:#8B7A30}.scd.g{background:#3A6B28}
+.sc-title{font-family:var(--mono);font-size:.63rem;color:var(--dim);margin:0 auto;letter-spacing:.04em}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.sbox{background:var(--bg2);padding:1.2rem 1.4rem}
+.snum{font-family:var(--head);font-size:1.85rem;font-weight:700;line-height:1}
+.snum.g{color:var(--green)}.snum.a{color:var(--amber)}.snum.t{color:var(--teal)}.snum.b{color:var(--blue)}
+.slbl{font-family:var(--mono);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:5px}
+.sc-info{padding:.9rem 1.4rem;display:flex;align-items:center;gap:10px;border-top:1px solid var(--border)}
+.sc-info-icon{width:30px;height:30px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.sc-info-txt{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:1.55}
+.sc-info-txt strong{font-weight:500}
+
+/* MARQUEE */
+.marquee-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:.72rem 0;display:flex;position:relative;z-index:1}
+.mq-track{display:flex;animation:mq 38s linear infinite;white-space:nowrap}
+.mq-item{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 1.8rem;display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.mq-item::after{content:'▸';color:var(--dim);font-size:.52rem}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTION */
+.section{padding:5.5rem 2.5rem}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.75rem}
+.svc{background:var(--bg);padding:1.85rem 1.7rem;transition:background .2s;position:relative}
+.svc:hover{background:var(--bg3)}
+.svc-bar{position:absolute;top:0;left:0;right:0;height:2px}
+.svc-idx{font-family:var(--mono);font-size:.61rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.85rem}
+.svc-title{font-family:var(--head);font-size:1rem;font-weight:600;color:var(--text);margin-bottom:.55rem;line-height:1.25}
+.svc-desc{font-size:.83rem;color:var(--muted);font-weight:300;line-height:1.82;margin-bottom:1.1rem}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.svc-list li{font-family:var(--mono);font-size:.68rem;color:var(--muted);display:flex;gap:6px;line-height:1.55}
+.svc-list li::before{content:'—';color:var(--green);flex-shrink:0;opacity:.6}
+
+/* METRICS */
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.met-quote{font-family:var(--head);font-size:1.15rem;color:var(--text);line-height:1.7;border-left:2px solid var(--green);padding-left:1.4rem;margin-top:2rem}
+.met-quote cite{display:block;font-family:var(--mono);font-size:.67rem;color:var(--dim);margin-top:.7rem;font-style:normal;letter-spacing:.06em}
+.m-boxes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.mbox{background:var(--bg);padding:1.6rem 1.4rem;transition:background .2s}
+.mbox:hover{background:var(--bg3)}
+.mbox.span2{grid-column:span 2;background:var(--bg3)}
+.mnum{font-family:var(--head);font-size:2.3rem;font-weight:700;line-height:1;margin-bottom:.35rem}
+.mnum.g{color:var(--green)}.mnum.a{color:var(--amber)}.mnum.t{color:var(--teal)}.mnum.b{color:var(--blue)}
+.mlbl{font-size:.84rem;color:var(--text);font-weight:500;margin-bottom:.2rem}
+.msub{font-family:var(--mono);font-size:.67rem;color:var(--muted);line-height:1.55}
+
+/* EXPERIENCE */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-p{font-size:.93rem;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:1.2rem}
+.about-p strong{color:var(--green);font-weight:500}
+.exp-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.exp-card{background:var(--bg);padding:1.65rem;transition:background .2s}
+.exp-card:hover{background:var(--bg2)}
+.exp-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.4rem;flex-wrap:wrap}
+.exp-role{font-family:var(--head);font-size:1rem;font-weight:600;color:var(--text)}
+.exp-co{font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:3px}
+.exp-period{font-family:var(--mono);font-size:.64rem;color:var(--muted);white-space:nowrap;padding-top:4px;flex-shrink:0}
+.exp-badge{font-family:var(--mono);font-size:.59rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:.7rem}
+.eb-cur{background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.35)}
+.eb-prev{background:rgba(240,192,96,.1);color:var(--amber);border:1px solid rgba(240,192,96,.28)}
+.eb-ojt{background:rgba(126,200,240,.1);color:var(--blue);border:1px solid rgba(126,200,240,.28)}
+.eb-csr{background:rgba(96,212,188,.1);color:var(--teal);border:1px solid rgba(96,212,188,.28)}
+.exp-bul{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:.4rem}
+.exp-bul li{font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.75;display:flex;gap:8px;align-items:flex-start}
+.exp-bul li::before{content:'▸';font-family:var(--mono);font-size:.58rem;color:var(--green);flex-shrink:0;margin-top:5px;opacity:.7}
+
+/* PROJECTS */
+.proj-filter{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:2.5rem 0 1px}
+.fbtn{font-family:var(--mono);font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;cursor:pointer;color:var(--muted);background:var(--bg);border:none;border-right:1px solid var(--border);transition:all .2s}
+.fbtn:last-child{border-right:none}
+.fbtn.on{color:var(--green);background:var(--gdim)}
+.fbtn:hover:not(.on){color:var(--text);background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.pcard{background:var(--bg);padding:1.7rem;transition:background .2s;position:relative}
+.pcard:hover{background:var(--bg3)}
+.pcard.feat{grid-column:span 2}
+.pbar{position:absolute;top:0;left:0;right:0;height:2px}
+.pcat{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;margin-top:.2rem}
+.ptitle{font-family:var(--head);font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:.55rem;line-height:1.3}
+.pdesc{font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:1.1rem}
+.ptags{display:flex;flex-wrap:wrap;gap:4px;padding-top:1rem;border-top:1px solid var(--border);align-items:center}
+.ptag{font-family:var(--mono);font-size:.62rem;padding:3px 8px;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.pres{font-family:var(--mono);font-size:.67rem;font-weight:500;margin-left:auto;white-space:nowrap}
+
+/* BILLING TABLE */
+.b-wrap{background:var(--bg2);border:1px solid var(--border2);border-radius:4px;overflow:hidden;margin-top:2.5rem}
+.b-hd{background:var(--surface);padding:11px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.b-hd-t{font-family:var(--mono);font-size:.71rem;color:var(--muted)}
+.b-hd-m{font-family:var(--mono);font-size:.63rem;color:var(--dim)}
+.b-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.bkpi{background:var(--bg2);padding:.95rem 1.2rem}
+.bkval{font-family:var(--head);font-size:1.45rem;font-weight:700;line-height:1;margin-bottom:3px}
+.bkval.g{color:var(--green)}.bkval.a{color:var(--amber)}.bkval.r{color:var(--red)}.bkval.t{color:var(--teal)}
+.bklbl{font-family:var(--mono);font-size:.59rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.tbl-wrap{overflow-x:auto;padding:1.1rem 1.4rem}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.7rem}
+thead th{font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 9px;border-bottom:1px solid var(--border);text-align:left}
+tbody tr{border-bottom:1px solid rgba(184,217,106,.07)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(184,217,106,.03)}
+tbody td{padding:8px 9px;color:var(--muted);vertical-align:middle}
+.td-n{color:var(--text)!important;font-weight:400}
+.td-a{color:var(--text)!important;font-weight:500;text-align:right}
+.pill{display:inline-block;font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px}
+.pill.paid{background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.32)}
+.pill.pend{background:rgba(240,192,96,.1);color:var(--amber);border:1px solid rgba(240,192,96,.28)}
+.pill.over{background:rgba(224,128,112,.1);color:var(--red);border:1px solid rgba(224,128,112,.28)}
+
+/* TOOLS */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.75rem}
+.t-cat{background:var(--bg);padding:1.7rem}
+.t-cat-title{font-family:var(--mono);font-size:.64rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:1.2rem;display:flex;align-items:center;gap:7px}
+.t-cat-title::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%;display:inline-block;flex-shrink:0}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.85rem}
+.chip{font-family:var(--mono);font-size:.67rem;padding:4px 10px;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border);transition:all .2s;cursor:default}
+.chip:hover{border-color:var(--green);color:var(--green)}
+.chip.on{background:var(--gdim);color:var(--green);border-color:rgba(184,217,106,.38)}
+.chip.lr{border-style:dashed;color:var(--muted)}
+.t-note{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:1.65;padding-top:.75rem;border-top:1px solid var(--border)}
+.t-note strong{color:var(--green)}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.5rem}
+.edu-card{background:var(--bg);padding:1.7rem;transition:background .2s}
+.edu-card:hover{background:var(--bg2)}
+.edu-badge{font-family:var(--mono);font-size:.59rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:.75rem}
+.eb-done{background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.32)}
+.eb-prog{background:rgba(240,192,96,.1);color:var(--amber);border:1px solid rgba(240,192,96,.25)}
+.edu-deg{font-family:var(--head);font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.edu-school{font-family:var(--mono);font-size:.71rem;color:var(--green)}
+.edu-year{font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-top:.2rem}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2rem}
+.cert{background:var(--bg);padding:.95rem 1.1rem;display:flex;gap:9px;align-items:flex-start;transition:background .2s}
+.cert:hover{background:var(--bg2)}
+.cert-dot{font-family:var(--mono);font-size:.62rem;color:var(--green);flex-shrink:0;margin-top:2px}
+.cert-nm{font-size:.79rem;color:var(--muted);font-weight:300;line-height:1.5}
+.cert-is{font-family:var(--mono);font-size:.62rem;color:var(--dim);margin-top:2px}
+
+/* ACCOMPLISHMENTS */
+.acc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.5rem}
+.acc-card{background:var(--bg);padding:1.5rem 1.4rem;transition:background .2s;border-left:2px solid transparent}
+.acc-card:hover{background:var(--bg2);border-left-color:var(--green)}
+.acc-icon{font-size:1.3rem;margin-bottom:.75rem;display:block}
+.acc-text{font-size:.83rem;color:var(--muted);font-weight:300;line-height:1.7}
+.acc-text strong{color:var(--text);font-weight:500;display:block;margin-bottom:.25rem;font-family:var(--head);font-size:.9rem}
+
+/* REMOTE */
+.remote-band{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2.5rem;position:relative;z-index:1}
+.remote-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.avail-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:1.5rem}
+.apill{font-family:var(--mono);font-size:.65rem;padding:4px 11px;border-radius:2px;background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.32)}
+.rb-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.rbcard{background:var(--bg2);padding:1rem 1.3rem;display:flex;align-items:center;gap:.9rem;transition:background .2s}
+.rbcard:hover{background:var(--surface)}
+.rb-icon{font-size:1.1rem;flex-shrink:0;width:30px;text-align:center}
+.rb-lbl{font-family:var(--mono);font-size:.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.rb-val{font-size:.87rem;color:var(--text);font-weight:300}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:start}
+.ci-list{display:flex;flex-direction:column;gap:1px;margin-top:2rem;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.ci{background:var(--bg2);padding:.95rem 1.2rem;display:flex;gap:.9rem;align-items:flex-start}
+.ci-icon{width:32px;height:32px;background:var(--gdim);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.75rem;color:var(--green);flex-shrink:0}
+.ci-lbl{font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.ci-val{font-size:.86rem;color:var(--muted);font-weight:300}
+.cform{background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:1.85rem}
+.form-title{font-family:var(--mono);font-size:.72rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.4rem;padding-bottom:.85rem;border-bottom:1px solid var(--border)}
+.frow{display:flex;flex-direction:column;gap:5px;margin-bottom:.9rem}
+.frow label{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.frow input,.frow textarea,.frow select{font-family:var(--mono);font-size:.8rem;padding:10px 13px;border:1px solid var(--border2);border-radius:2px;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s;font-weight:300;width:100%}
+.frow input::placeholder,.frow textarea::placeholder{color:var(--dim)}
+.frow input:focus,.frow textarea:focus,.frow select:focus{border-color:var(--green)}
+.frow textarea{min-height:110px;resize:vertical}
+.frow select option{background:var(--bg2);color:var(--text)}
+.fgrid2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.sub-btn{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px;border-radius:2px;background:var(--green);color:#0C0F0A;border:none;cursor:pointer;width:100%;transition:opacity .2s;margin-top:.5rem}
+.sub-btn:hover{opacity:.85}
+.form-note{font-family:var(--mono);font-size:.62rem;color:var(--dim);text-align:center;margin-top:.75rem;line-height:1.6}
+.form-note a{color:var(--green);text-decoration:none}
+.form-success{display:none;background:var(--gdim);border:1px solid rgba(184,217,106,.35);border-radius:4px;padding:1.5rem;text-align:center;margin-top:1rem}
+.form-success p{font-family:var(--mono);font-size:.75rem;color:var(--green)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.85rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.85rem;position:relative;z-index:1}
+.f-logo{font-family:var(--mono);font-size:.78rem;color:var(--green);letter-spacing:.04em}
+footer p{font-family:var(--mono);font-size:.65rem;color:var(--dim);letter-spacing:.04em}
+.f-links{display:flex;gap:1.4rem}
+.f-links a{font-family:var(--mono);font-size:.65rem;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;transition:color .2s}
+.f-links a:hover{color:var(--green)}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.testi-card{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;overflow:hidden;transition:border-color .25s,background .25s;display:flex;flex-direction:column;gap:1.25rem}
+.testi-card:hover{background:var(--bg3);border-color:var(--border2)}
+.testi-bar{position:absolute;top:0;left:0;right:0;height:2px}
+.testi-featured{grid-column:span 2;background:var(--bg3)}
+.testi-letter-badge{font-family:var(--mono);font-size:.62rem;color:var(--blue);letter-spacing:.08em;background:rgba(126,200,240,.08);border:1px solid rgba(126,200,240,.2);padding:4px 10px;border-radius:2px;display:inline-block;width:fit-content}
+.testi-quote{font-size:.88rem;color:var(--muted);line-height:1.9;font-weight:300;font-style:italic;position:relative;padding-left:1.1rem;border-left:2px solid var(--border2)}
+.testi-author{display:flex;align-items:center;gap:.9rem;margin-top:.25rem}
+.testi-avatar{width:38px;height:38px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:500;flex-shrink:0}
+.testi-name{font-family:var(--head);font-size:.95rem;font-weight:600;color:var(--text)}
+.testi-role{font-family:var(--mono);font-size:.67rem;color:var(--muted);margin-top:2px}
+.testi-date{font-family:var(--mono);font-size:.62rem;color:var(--dim);margin-top:2px}
+.testi-tags{display:flex;flex-wrap:wrap;gap:5px;padding-top:1rem;border-top:1px solid var(--border)}
+.testi-tag{font-family:var(--mono);font-size:.62rem;padding:3px 8px;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.testi-linkedin{display:flex;align-items:center;justify-content:space-between;background:var(--bg);border:1px solid var(--border2);border-radius:4px;padding:1.2rem 1.5rem;margin-top:1.5rem;gap:1rem;flex-wrap:wrap}
+.testi-li-left{display:flex;align-items:center;gap:.9rem}
+.testi-li-icon{width:36px;height:36px;background:rgba(10,102,194,.15);border:1px solid rgba(10,102,194,.3);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:.85rem;font-weight:700;color:#5BA0D0;flex-shrink:0}
+.testi-li-label{font-size:.85rem;color:var(--text);font-weight:400}
+.testi-li-url{font-family:var(--mono);font-size:.64rem;color:var(--dim);margin-top:2px}
+.testi-li-btn{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:2px;background:var(--gdim);color:var(--green);border:1px solid rgba(184,217,106,.32);text-decoration:none;white-space:nowrap;transition:all .2s}
+.testi-li-btn:hover{background:var(--green);color:#0C0F0A}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">rn<span>() =&gt;</span> portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-chip">
+        <div class="s-dot"></div>
+        Available for remote work · PH / US / UK timezones
+      </div>
+      <h1 class="hero-name">Rose Anne<br><span class="g">Nerida</span></h1>
+      <div class="role-badges">
+        <span class="rb am">Senior Admin</span>
+        <span class="rb tl">Billing & Collections</span>
+        <span class="rb gr">Bookkeeping Support</span>
+        <span class="rb bl">Data & Reporting</span>
+      </div>
+      <p class="hero-desc">7+ years of experience in administrative operations, billing systems, and data validation — from invoicing and collections to expense management, budget oversight, and process improvement. Based in Taguig City, Philippines.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-fill">Work With Me →</a>
+        <a href="#projects" class="btn btn-ghost">View My Work</a>
+      </div>
+    </div>
+    <div class="stats-card">
+      <div class="sc-bar">
+        <div class="scd r"></div><div class="scd y"></div><div class="scd g"></div>
+        <div class="sc-title">rose_anne_nerida.profile</div>
+      </div>
+      <div class="stats-grid">
+        <div class="sbox"><div class="snum g">7+</div><div class="slbl">Yrs Experience</div></div>
+        <div class="sbox"><div class="snum a">90%</div><div class="slbl">Collection Rate</div></div>
+        <div class="sbox"><div class="snum t">27</div><div class="slbl">Staff Supervised</div></div>
+        <div class="sbox"><div class="snum b">10%</div><div class="slbl">Cost Reduction</div></div>
+      </div>
+      <div class="sc-info" style="background:rgba(126,200,240,.04)">
+        <div class="sc-info-icon" style="background:rgba(126,200,240,.12)">🎓</div>
+        <div class="sc-info-txt"><strong style="color:var(--blue)">MS Business Analytics</strong> — Mapua University · In Progress</div>
+      </div>
+      <div class="sc-info">
+        <div class="s-dot" style="flex-shrink:0"></div>
+        <div class="sc-info-txt"><strong style="color:var(--green)">Remote Ready</strong> · Converge 400Mbps · Backup WiFi · Acer i5</div>
+      </div>
+      <div class="sc-info" style="background:rgba(240,192,96,.04)">
+        <div class="sc-info-icon" style="background:rgba(240,192,96,.12)">🏆</div>
+        <div class="sc-info-txt"><strong style="color:var(--amber)">Best Employee of the Year 2021</strong> — Fiberhome Phils Inc</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="mq-track">
+    <span class="mq-item">Billing & Collections</span><span class="mq-item">Accounts Payable & Receivable</span><span class="mq-item">Expense Management</span><span class="mq-item">Receipt Verification</span><span class="mq-item">Budget Tracking</span><span class="mq-item">OA System</span><span class="mq-item">SAP Procurement</span><span class="mq-item">KPI Monitoring</span><span class="mq-item">Virtual Admin</span><span class="mq-item">Excel Dashboards</span><span class="mq-item">Process Improvement</span><span class="mq-item">Team Supervision</span><span class="mq-item">Wix Web Building</span><span class="mq-item">Billing & Collections</span><span class="mq-item">Accounts Payable & Receivable</span><span class="mq-item">Expense Management</span><span class="mq-item">Receipt Verification</span><span class="mq-item">Budget Tracking</span><span class="mq-item">OA System</span><span class="mq-item">SAP Procurement</span><span class="mq-item">KPI Monitoring</span><span class="mq-item">Virtual Admin</span><span class="mq-item">Excel Dashboards</span><span class="mq-item">Process Improvement</span><span class="mq-item">Team Supervision</span><span class="mq-item">Wix Web Building</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">What I Offer</div>
+    <h2 class="s-title fade">Services &amp; Expertise</h2>
+    <p class="s-sub fade">End-to-end administrative, billing, bookkeeping, and data support — the kind that keeps a business running without you having to think twice.</p>
+    <div class="svc-grid fade">
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--green)"></div>
+        <div class="svc-idx" style="color:var(--green)">01 · Billing & Collections</div>
+        <div class="svc-title">Get paid. Stay reconciled.</div>
+        <p class="svc-desc">End-to-end billing with a proven 90% collection rate — processing accounts payable & receivable, invoicing dues and utilities, verifying proof of payment, and professional follow-up that keeps cash flow steady.</p>
+        <ul class="svc-list">
+          <li>Accounts payable & receivable processing</li>
+          <li>Billing statements & invoice issuance</li>
+          <li>Payment verification vs. bank records</li>
+          <li>Aging report monitoring & disconnection review</li>
+          <li>Collections follow-up & reconciliation</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--teal)"></div>
+        <div class="svc-idx" style="color:var(--teal)">02 · Expense & Budget Management</div>
+        <div class="svc-title">Clean books, accurate records.</div>
+        <p class="svc-desc">Hands-on budget and expense management from 7+ years — overseeing reimbursements, reviewing receipts and supporting documents, processing 40+ monthly cash transactions, and preparing expense reports via OA System.</p>
+        <ul class="svc-list">
+          <li>Receipt verification & document review</li>
+          <li>Expense report preparation & OA uploads</li>
+          <li>Budget tracking & cost-saving analysis</li>
+          <li>Utility & project expense oversight</li>
+          <li>SAP procurement process support</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--amber)"></div>
+        <div class="svc-idx" style="color:var(--amber)">03 · Virtual Admin Support</div>
+        <div class="svc-title">Your ops, fully handled.</div>
+        <p class="svc-desc">Full admin operations — email management, calendar coordination, vendor liaison, document preparation, records management, and SOPs. I've led 27 admin staff nationwide and can own your remote admin function.</p>
+        <ul class="svc-list">
+          <li>Email, calendar & correspondence management</li>
+          <li>Vendor & client coordination</li>
+          <li>Document drafting, filing & compliance</li>
+          <li>Executive & clerical support</li>
+          <li>SOP writing & onboarding design</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--blue)"></div>
+        <div class="svc-idx" style="color:var(--blue)">04 · Data Analysis & Reporting</div>
+        <div class="svc-title">Spreadsheets that tell a story.</div>
+        <p class="svc-desc">Advanced Excel skills built from real billing work — VLOOKUP, pivot tables, dashboards, KPI tracking, and financial reports your management will actually use. 20% faster reporting turnaround achieved in practice.</p>
+        <ul class="svc-list">
+          <li>KPI tracking & performance monitoring</li>
+          <li>Billing tracker dashboards</li>
+          <li>Financial & collection report generation</li>
+          <li>Budget & expense analysis</li>
+          <li>Data cleaning & validation</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--green)"></div>
+        <div class="svc-idx" style="color:var(--green)">05 · Process Improvement</div>
+        <div class="svc-title">Systems that actually work.</div>
+        <p class="svc-desc">Identify inefficiencies, streamline workflows, and build SOPs teams actually follow. Real results: 20% faster reporting, 10% cost reduction, and consolidated systems rolled out across 27 admin staff nationwide.</p>
+        <ul class="svc-list">
+          <li>Workflow audit & gap analysis</li>
+          <li>SOP documentation & rollout</li>
+          <li>Shared drive & reporting system setup</li>
+          <li>Staff coordination & training support</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-bar" style="background:var(--teal)"></div>
+        <div class="svc-idx" style="color:var(--teal)">06 · Web Building (Wix)</div>
+        <div class="svc-title">Websites that serve a purpose.</div>
+        <p class="svc-desc">I build functional, organized Wix websites — proven with a live resident portal for a LEED Gold condo in BGC. Forms hubs, announcements, circulars, and property portals built to simplify admin processes.</p>
+        <ul class="svc-list">
+          <li>Wix site design & build</li>
+          <li>Forms hub & circular management</li>
+          <li>Announcements & content management</li>
+          <li>Staff directory & property info pages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="section" style="border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="met-grid">
+      <div class="fade">
+        <div class="s-label">Impact</div>
+        <h2 class="s-title">Numbers that speak<br>for themselves.</h2>
+        <p class="s-sub">Every metric here comes from real work — real operations, real data, real results across 7+ years of professional experience.</p>
+        <div class="met-quote">
+          "I don't just report what happened — I help you understand why, and what to do next."
+          <cite>— My approach to every project</cite>
+        </div>
+      </div>
+      <div class="m-boxes fade">
+        <div class="mbox span2">
+          <div class="mnum g">90%</div>
+          <div class="mlbl">On-Time Financial Operations</div>
+          <div class="msub">Achieved through accurate invoicing, consistent follow-up, and reconciliation systems at Arthaland</div>
+        </div>
+        <div class="mbox">
+          <div class="mnum a">20%</div>
+          <div class="mlbl">Faster Reporting</div>
+          <div class="msub">After implementing consolidated reporting & shared drive systems across 27 admin staff</div>
+        </div>
+        <div class="mbox">
+          <div class="mnum t">10%</div>
+          <div class="mlbl">Cost Reduction</div>
+          <div class="msub">Via budget analysis and data-driven admin improvements at Fiberhome Phils</div>
+        </div>
+        <div class="mbox">
+          <div class="mnum b">27</div>
+          <div class="mlbl">Staff Supervised</div>
+          <div class="msub">Nationwide admin operations — NCR, Visayas, Mindanao, SLZ</div>
+        </div>
+        <div class="mbox">
+          <div class="mnum g">40+</div>
+          <div class="mlbl">Monthly Transactions</div>
+          <div class="msub">Cash reimbursements processed monthly via OA system with zero discrepancy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="exp-grid">
+      <div class="fade">
+        <div class="s-label">About</div>
+        <h2 class="s-title">A steady hand<br>behind the numbers.</h2>
+        <p class="about-p">I'm Rose Anne — a senior admin and billing professional based in Taguig City, Philippines, with 7+ years of experience in administrative operations, billing systems, and data validation.</p>
+        <p class="about-p">My background spans <strong>billing & collections</strong> (accounts payable & receivable, invoicing, payment verification, aging reports), <strong>expense & budget management</strong> (receipt review, OA system reimbursements, expense reports, SAP procurement support), and <strong>team leadership</strong> — having supervised 27 admin staff nationwide at Fiberhome Phils.</p>
+        <p class="about-p">During my OJT at the <strong>Department of Budget and Management</strong>, I assisted in administrative processes including Petty Cash Vouchers, data entry, and basic IT support — giving me early government finance exposure.</p>
+        <p class="about-p">I'm actively expanding my accounting knowledge through <strong>Wing Academy</strong> training and self-study on Zoho Books, Xero, and QuickBooks — building toward full bookkeeping capability. Currently pursuing my <strong>MS in Business Analytics</strong> at Mapua University.</p>
+      </div>
+      <div class="fade">
+        <div class="s-label">Career Timeline</div>
+        <div class="exp-list" style="margin-top:1.2rem">
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Senior Admin & Billing Associate</div>
+                <div class="exp-co">Arthaland Corporation</div>
+              </div>
+              <div class="exp-period">Jun 2024 – Present</div>
+            </div>
+            <div class="exp-badge eb-cur">● Current</div>
+            <ul class="exp-bul">
+              <li>Processed accounts payable & receivable transactions including invoicing, payment processing, and vendor coordination — achieving 90% on-time financial operations</li>
+              <li>Prepared and issued billing statements for condo dues, utilities, function rooms, and amenity usage</li>
+              <li>Monitored AR and maintained up-to-date records of resident payments, outstanding balances, and penalties</li>
+              <li>Conducted monthly pre-billing review and data quality analysis to verify invoice accuracy</li>
+              <li>Evaluated aging reports to identify accounts for monthly disconnection review</li>
+              <li>Generated financial and collection reports for management review</li>
+              <li>Approved and verified gate passes, work permits, and service requests per condo policies</li>
+              <li>Handled payments and monitoring for unit cleaning, grease trap, maintenance, and amenities</li>
+              <li>Compiled and maintained client financial records for reporting and audit purposes</li>
+              <li>Developed website for forms and circulars, improving admin accessibility and streamlining processes</li>
+              <li>Provided executive and clerical support including scheduling, calls, and resident inquiries</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Administrative Supervisor</div>
+                <div class="exp-co">Fiberhome Phils Inc</div>
+              </div>
+              <div class="exp-period">Apr 2021 – Nov 2023</div>
+            </div>
+            <div class="exp-badge eb-prev">Previous</div>
+            <ul class="exp-bul">
+              <li>Supervised 27 Area Admin staff nationwide (NCR, Visayas, Mindanao, SLZ), ensuring compliance with company standards</li>
+              <li>Implemented consolidated reporting processes and shared drive systems — reducing submission delays by 20%</li>
+              <li>Oversaw 40+ monthly cash transactions via OA reimbursement system; resolved discrepancies and achieved 10% cost reduction through budget analysis</li>
+              <li>Reviewed and verified receipts and supporting documents prior to Finance submission</li>
+              <li>Prepared and monitored Project Director's expense reports including approvals and OA System uploads</li>
+              <li>Coordinated with Procurement and assisted with SAP system requests for tools and equipment</li>
+              <li>Tracked budgets, identified cost-saving opportunities, and prepared financial reports for senior leadership</li>
+              <li>Conducted KPI evaluations, interviews, and training for new hires</li>
+              <li>Managed travel arrangements (flights and hotels), inventory, and office supplies</li>
+              <li>Monitored and evaluated staff performance supporting annual reviews and productivity improvement</li>
+              <li>🏆 Best Employee of the Year 2021</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Administrative Officer</div>
+                <div class="exp-co">Fiberhome Phils Inc</div>
+              </div>
+              <div class="exp-period">Feb 2019 – Apr 2021</div>
+            </div>
+            <div class="exp-badge eb-prev">Previous</div>
+            <ul class="exp-bul">
+              <li>Oversaw end-to-end admin operations during project start-up across multiple regions (NLZ, Davao, Butuan) — covering leasing, utilities, logistics, and staff support</li>
+              <li>Handled budget management including expense reports, reimbursements, and utility payments; prepared financial reports for Sales and Project Directors</li>
+              <li>Supervised vehicle operations — scheduling, driver trip logs, fuel monitoring, and area admin coordination</li>
+              <li>Managed leasing activities, coordinating with brokers for staff housing and office leases</li>
+              <li>Coordinated travel bookings and supported recruitment, interviews, and onboarding for project-site staff</li>
+              <li>Implemented administrative rules, trackers, and process improvements to streamline operations and reporting</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Customer Service Representative</div>
+                <div class="exp-co">Sitel Corporation</div>
+              </div>
+              <div class="exp-period">Sept – Dec 2018</div>
+            </div>
+            <div class="exp-badge eb-csr">CSR</div>
+            <ul class="exp-bul">
+              <li>Assisted customers with online shopping concerns including orders, tracking, returns, refunds via chat, email & phone</li>
+              <li>Coordinated with logistics, warehouse, and payment teams for accurate order fulfillment</li>
+              <li>Maintained accurate records of customer interactions, orders, and case resolutions</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Finance & Admin Intern</div>
+                <div class="exp-co">Department of Budget and Management (DBM)</div>
+              </div>
+              <div class="exp-period">2016 – 2017</div>
+            </div>
+            <div class="exp-badge eb-ojt">OJT</div>
+            <ul class="exp-bul">
+              <li>Assisted in administrative processes including Petty Cash Vouchers, answering calls, and data entry</li>
+              <li>Installed network cables, assisted with hardware, and provided basic IT troubleshooting</li>
+              <li>Gained exposure to government-level finance and budget processes</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-head">
+              <div>
+                <div class="exp-role">Lead Generation Specialist</div>
+                <div class="exp-co">Good Shepert Staffing</div>
+              </div>
+              <div class="exp-period">Freelance</div>
+            </div>
+            <div class="exp-badge eb-csr">Freelance</div>
+            <ul class="exp-bul">
+              <li>Conducted outreach using Boolean search, Apollo.io, and LinkedIn</li>
+              <li>Organized leads and documentation using Google Sheets and Drive</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects" style="border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">Portfolio</div>
+    <h2 class="s-title fade">Featured Projects</h2>
+    <p class="s-sub fade">Real work built from real operations — billing systems, expense management, admin tools, data dashboards, and websites.</p>
+    <div class="proj-filter fade">
+      <button class="fbtn on" onclick="filterProj('all',this)">All Work</button>
+      <button class="fbtn" onclick="filterProj('billing',this)">Billing & Finance</button>
+      <button class="fbtn" onclick="filterProj('data',this)">Data & Reports</button>
+      <button class="fbtn" onclick="filterProj('admin',this)">Admin & Ops</button>
+      <button class="fbtn" onclick="filterProj('web',this)">Web Building</button>
+    </div>
+    <div class="proj-grid fade" id="proj-grid">
+
+      <div class="pcard feat" data-cat="billing">
+        <div class="pbar" style="background:var(--green)"></div>
+        <div class="pcat" style="color:var(--green)">Billing System · Featured</div>
+        <div class="ptitle">Service Request Billing & Monitoring Dashboard</div>
+        <p class="pdesc">Built and maintained a multi-service billing dashboard covering Unit Cleaning, Maintenance, Grease Trap, and Amenity usage. Features monthly pre-billing reviews, payment status tracking, aging report evaluation, and delinquency flags — with management-ready collection reports generated from a single source of truth.</p>
+        <div class="ptags"><span class="ptag">Excel</span><span class="ptag">Pivot Tables</span><span class="ptag">VLOOKUP</span><span class="ptag">Aging Reports</span><span class="ptag">AR Monitoring</span><span class="pres" style="color:var(--green)">90% efficiency →</span></div>
+      </div>
+
+      <div class="pcard" data-cat="billing">
+        <div class="pbar" style="background:var(--amber)"></div>
+        <div class="pcat" style="color:var(--amber)">Expense Management</div>
+        <div class="ptitle">OA System Reimbursement & Budget Tracking</div>
+        <p class="pdesc">Processed 40+ monthly cash transactions via OA reimbursement system — reviewing receipts, verifying supporting documents, resolving discrepancies, and uploading Project Director expense reports. Budget analysis contributed to a 10% cost reduction at Fiberhome.</p>
+        <div class="ptags"><span class="ptag">OA System</span><span class="ptag">Receipt Review</span><span class="ptag">Expense Reports</span><span class="ptag">Budget Analysis</span><span class="pres" style="color:var(--amber)">10% savings →</span></div>
+      </div>
+
+      <div class="pcard" data-cat="data">
+        <div class="pbar" style="background:var(--blue)"></div>
+        <div class="pcat" style="color:var(--blue)">Data & KPI Reporting</div>
+        <div class="ptitle">Financial & Collection Reports for Management</div>
+        <p class="pdesc">Generated regular financial and collection reports for management review — ensuring data accuracy, proper documentation, and clear visibility into billing performance, outstanding balances, and collection rates.</p>
+        <div class="ptags"><span class="ptag">Excel</span><span class="ptag">KPI Monitoring</span><span class="ptag">Report Generation</span><span class="ptag">Data Validation</span><span class="pres" style="color:var(--blue)">Regular delivery →</span></div>
+      </div>
+
+      <div class="pcard" data-cat="admin">
+        <div class="pbar" style="background:var(--teal)"></div>
+        <div class="pcat" style="color:var(--teal)">Admin Operations</div>
+        <div class="ptitle">Nationwide Reporting Consolidation — 27 Staff</div>
+        <p class="pdesc">Designed and rolled out consolidated reporting systems and shared drive infrastructure for 27 admin staff across NCR, Visayas, Mindanao, and SLZ. Cut submission delays by 20% and created standardized reporting templates for weekly and monthly reviews.</p>
+        <div class="ptags"><span class="ptag">Google Drive</span><span class="ptag">Sheets</span><span class="ptag">SOP Design</span><span class="ptag">Team Leadership</span><span class="pres" style="color:var(--teal)">20% faster →</span></div>
+      </div>
+
+      <div class="pcard" data-cat="admin">
+        <div class="pbar" style="background:var(--green)"></div>
+        <div class="pcat" style="color:var(--green)">Procurement Support</div>
+        <div class="ptitle">SAP Procurement Process Coordination</div>
+        <p class="pdesc">Supported SAP procurement processes by validating request forms, securing approvals, and coordinating with procurement teams for timely PO processing and delivery of tools and equipment across project sites.</p>
+        <div class="ptags"><span class="ptag">SAP</span><span class="ptag">Procurement</span><span class="ptag">PO Processing</span><span class="ptag">Inventory Control</span><span class="pres" style="color:var(--green)">Nationwide →</span></div>
+      </div>
+
+      <div class="pcard" data-cat="web">
+        <div class="pbar" style="background:var(--amber)"></div>
+        <div class="pcat" style="color:var(--amber)">Web Development</div>
+        <div class="ptitle">Arya Residences Resident Portal</div>
+        <p class="pdesc">Designed and built a full resident web portal for a LEED Gold-certified luxury condo in BGC — covering ARCC forms (move-in/out, gate pass, renovation), announcements, circulars, bills payment info, and staff directory. Live and in active use.</p>
+        <div class="ptags"><span class="ptag">Wix</span><span class="ptag">Forms Hub</span><span class="ptag">Circulars</span><span class="ptag">Content Mgmt</span><span class="pres" style="color:var(--amber)">Live portal →</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BILLING SAMPLE -->
+<section class="section" id="billing" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">Sample Work</div>
+    <h2 class="s-title fade">Live Billing Snapshot</h2>
+    <p class="s-sub fade">A sample of the billing monitoring tracker I build and maintain — payment statuses, aging, and collection rates at a glance. <span style="font-family:var(--mono);font-size:.68rem;color:var(--dim)">*Anonymized sample data.</span></p>
+    <div class="b-wrap fade">
+      <div class="b-hd">
+        <div class="b-hd-t">📋 billing_monitor_Q2_2026.xlsx</div>
+        <div class="b-hd-m">rose_anne_nerida · updated Apr 23 2026 · 47 accounts</div>
+      </div>
+      <div class="b-kpis">
+        <div class="bkpi"><div class="bkval g">₱284,500</div><div class="bklbl">Total Collected</div></div>
+        <div class="bkpi"><div class="bkval a">₱48,200</div><div class="bklbl">Pending / Due</div></div>
+        <div class="bkpi"><div class="bkval r">₱12,800</div><div class="bklbl">Overdue (30d+)</div></div>
+        <div class="bkpi"><div class="bkval t">90%</div><div class="bklbl">Collection Rate</div></div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Account / Client</th><th>Invoice #</th><th>Due Date</th><th>Amount</th><th>Status</th><th>Aging</th><th>Remarks</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="td-n">Santos Trading Co.</td><td>INV-2026-041</td><td>Apr 10</td><td class="td-a">₱18,500</td><td><span class="pill paid">Paid</span></td><td style="color:var(--green);font-size:.64rem">On time</td><td style="font-size:.64rem">Cleared via bank transfer · receipt verified ✓</td></tr>
+            <tr><td class="td-n">Reyes Medical Clinic</td><td>INV-2026-038</td><td>Apr 20</td><td class="td-a">₱9,200</td><td><span class="pill pend">Pending</span></td><td style="color:var(--amber);font-size:.64rem">3 days</td><td style="font-size:.64rem">1st follow-up sent · awaiting confirmation</td></tr>
+            <tr><td class="td-n">Lim &amp; Associates Law</td><td>INV-2026-029</td><td>Mar 25</td><td class="td-a">₱22,000</td><td><span class="pill paid">Paid</span></td><td style="color:var(--green);font-size:.64rem">On time</td><td style="font-size:.64rem">Check deposit confirmed · documents filed</td></tr>
+            <tr><td class="td-n">Cruz Construction</td><td>INV-2026-021</td><td>Mar 15</td><td class="td-a">₱12,800</td><td><span class="pill over">Overdue</span></td><td style="color:var(--red);font-size:.64rem">37 days</td><td style="font-size:.64rem">3rd notice sent · escalated to management</td></tr>
+            <tr><td class="td-n">Dela Torre Pharmacy</td><td>INV-2026-044</td><td>Apr 28</td><td class="td-a">₱7,400</td><td><span class="pill pend">Pending</span></td><td style="color:var(--amber);font-size:.64rem">Due soon</td><td style="font-size:.64rem">Proforma sent · pre-billing review done ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools" style="border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">Tech Stack</div>
+    <h2 class="s-title fade">Tools I Work With</h2>
+    <p class="s-sub fade">Practical, hands-on experience with software that runs real admin, billing, and operations work. Tools marked dashed are in active training.</p>
+    <div class="tools-grid fade">
+      <div class="t-cat">
+        <div class="t-cat-title">Billing & Finance Systems</div>
+        <div class="chips">
+          <span class="chip on">OA Reimbursement System</span>
+          <span class="chip on">SAP Procurement</span>
+          <span class="chip on">Accounts Payable & Receivable</span>
+          <span class="chip on">Invoice Processing</span>
+          <span class="chip on">Aging Reports</span>
+          <span class="chip lr">Zoho Books ↗</span>
+          <span class="chip lr">Xero ↗</span>
+          <span class="chip lr">QuickBooks ↗</span>
+        </div>
+        <div class="t-note">Currently deepening accounting software knowledge via <strong>Wing Academy</strong> training and self-study on Zoho Books, Xero & QuickBooks.</div>
+      </div>
+      <div class="t-cat">
+        <div class="t-cat-title">Data & Reporting</div>
+        <div class="chips">
+          <span class="chip on">Microsoft Excel (Advanced)</span>
+          <span class="chip on">Pivot Tables</span>
+          <span class="chip on">VLOOKUP / XLOOKUP</span>
+          <span class="chip on">Data Validation</span>
+          <span class="chip on">KPI Tracking</span>
+          <span class="chip on">Google Sheets</span>
+          <span class="chip on">Google Drive</span>
+          <span class="chip on">Dashboard Design</span>
+        </div>
+      </div>
+      <div class="t-cat">
+        <div class="t-cat-title">Admin & Productivity</div>
+        <div class="chips">
+          <span class="chip on">Microsoft 365</span>
+          <span class="chip on">Microsoft Outlook</span>
+          <span class="chip on">Microsoft Teams</span>
+          <span class="chip on">Microsoft Copilot</span>
+          <span class="chip on">Google Workspace</span>
+          <span class="chip on">Slack</span>
+          <span class="chip on">Zoom / Google Meet</span>
+          <span class="chip on">Loom</span>
+          <span class="chip on">Calendly</span>
+          <span class="chip on">Canva</span>
+        </div>
+      </div>
+      <div class="t-cat">
+        <div class="t-cat-title">Project Management</div>
+        <div class="chips">
+          <span class="chip on">Trello</span>
+          <span class="chip on">ClickUp</span>
+          <span class="chip on">Monday.com</span>
+        </div>
+        <div class="t-cat-title" style="margin-top:1.2rem">AI & Web</div>
+        <div class="chips">
+          <span class="chip on">ChatGPT</span>
+          <span class="chip on">Grammarly</span>
+          <span class="chip on">Gamma</span>
+          <span class="chip on">Wix</span>
+          <span class="chip on">Wix Forms & CMS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTIFICATIONS -->
+<section class="section" id="education" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">Education</div>
+    <h2 class="s-title fade">Always Learning.</h2>
+    <div class="edu-grid fade">
+      <div class="edu-card">
+        <div class="edu-badge eb-prog">⟳ In Progress</div>
+        <div class="edu-deg">Master in Business Analytics</div>
+        <div class="edu-school">Mapua University</div>
+        <div class="edu-year">2026 · Makati City, Philippines</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge eb-done">✓ Completed</div>
+        <div class="edu-deg">BS Information Technology</div>
+        <div class="edu-school">Saint Louis College</div>
+        <div class="edu-year">2014 – 2018 · San Fernando City, La Union</div>
+      </div>
+    </div>
+
+    <div class="s-label fade" style="margin-top:3rem">Accomplishments</div>
+    <div class="acc-grid fade">
+      <div class="acc-card"><span class="acc-icon">🏆</span><div class="acc-text"><strong>Best Employee of the Year 2021</strong>Fiberhome Phils Inc — recognized for outstanding administrative leadership and operational contributions.</div></div>
+      <div class="acc-card"><span class="acc-icon">📊</span><div class="acc-text"><strong>90% Budget Efficiency</strong>Actively supported cost-reduction initiatives and budget analysis — achieving significant operational savings.</div></div>
+      <div class="acc-card"><span class="acc-icon">👥</span><div class="acc-text"><strong>Supervised Team of 27</strong>Led nationwide admin operations across NCR, Visayas, Mindanao, and SLZ regions.</div></div>
+      <div class="acc-card"><span class="acc-icon">🌐</span><div class="acc-text"><strong>Built Resident Web Portal</strong>Created Wix website for forms and announcements — streamlining admin processes for the condo property.</div></div>
+      <div class="acc-card"><span class="acc-icon">📋</span><div class="acc-text"><strong>Excel Inventory Tracker</strong>Developed Microsoft Excel-based inventory tracking spreadsheets used across admin operations.</div></div>
+    </div>
+
+    <div class="s-label fade" style="margin-top:3rem">Certifications & Training</div>
+    <div class="cert-grid fade">
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Administrative Professional Foundations</div><div class="cert-is">LinkedIn Learning · 2024</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Streamlining Your Work with Microsoft Copilot</div><div class="cert-is">LinkedIn Learning · 2024</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Website Creation</div><div class="cert-is">The VA BAR · 2024</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Freelancing Starter Course (Admin, Social Media, Lead Gen, Email Marketing, Basic Graphic Design)</div><div class="cert-is">The VA BAR</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Wing Assistant Basic Skills Training 1 & 2</div><div class="cert-is">Wing · 2024</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">4th Step Up International Services Inc. Seminar</div><div class="cert-is">Henry Lee Irwin Theatre, Ateneo De Manila University</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Robotics Seminar Workshop</div><div class="cert-is">Workshop</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Computer Network Administration</div><div class="cert-is">Seminar / Workshop</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Technopreneurship & Arduino</div><div class="cert-is">Workshop</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Cross-Platform Mobile App Development</div><div class="cert-is">Saint Louis College</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Basics of Graphics Editing</div><div class="cert-is">Workshop</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">BPO and IT Industry Awareness Seminars</div><div class="cert-is">Seminar</div></div></div>
+      <div class="cert"><div class="cert-dot">✦</div><div><div class="cert-nm">Trends in Wireless Connection 802.11</div><div class="cert-is">Seminar</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="s-label fade">Social Proof</div>
+    <h2 class="s-title fade">What People <span style="color:var(--green)">Say.</span></h2>
+    <p class="s-sub fade">Recommendations from managers, supervisors, and clients who have worked with me directly.
+      <a href="https://www.linkedin.com/in/rose-anne-venus-nerida-338b60139/details/recommendations/" target="_blank" style="font-family:var(--mono);font-size:.7rem;color:var(--green);text-decoration:none;margin-left:.5rem">View on LinkedIn ↗</a>
+    </p>
+    <div class="testi-grid fade">
+
+      <div class="testi-card">
+        <div class="testi-bar" style="background:var(--green)"></div>
+        <div class="testi-quote">
+          &ldquo;Rose used to serve as the admin supervisor of the PTO project team, responsible for the administrative affairs of the project group. She approached her work with seriousness and responsibility, and was able to personally engage in key tasks while maintaining focus on the objectives. Additionally, she was willing to assist the team and collaborate with them to address issues collectively. Rose demonstrated excellent resilience to work pressure and was unafraid of challenges, making her capable of handling any new job challenges.&rdquo;
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(184,217,106,.15);color:var(--green)">CK</div>
+          <div>
+            <div class="testi-name">Chris Kong</div>
+            <div class="testi-role">Manager · Fiberhome Phils Inc (PTO Project)</div>
+          </div>
+        </div>
+        <div class="testi-tags">
+          <span class="testi-tag">Admin Leadership</span>
+          <span class="testi-tag">Team Collaboration</span>
+          <span class="testi-tag">Work Under Pressure</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-bar" style="background:var(--amber)"></div>
+        <div class="testi-quote">
+          &ldquo;Rose Anne was an intern with us, assisting in email marketing and lead generation. She&rsquo;s proactive and quick to respond, which made collaboration smooth. Her work was consistently high-quality and always completed on time. I highly recommend Rose Anne for her dedication and effectiveness.&rdquo;
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(240,192,96,.15);color:var(--amber)">JE</div>
+          <div>
+            <div class="testi-name">Jenine E.</div>
+            <div class="testi-role">Recruiting Manager · Good Shepherd Staffing</div>
+            <div class="testi-date">April 15, 2024 · LinkedIn Recommendation</div>
+          </div>
+        </div>
+        <div class="testi-tags">
+          <span class="testi-tag">Lead Generation</span>
+          <span class="testi-tag">Email Marketing</span>
+          <span class="testi-tag">Proactive</span>
+          <span class="testi-tag">High Quality Work</span>
+        </div>
+      </div>
+
+      <div class="testi-card testi-featured">
+        <div class="testi-bar" style="background:var(--blue)"></div>
+        <div class="testi-letter-badge">📄 Official Letter of Recommendation · April 9, 2024</div>
+        <div class="testi-quote">
+          &ldquo;I&rsquo;m so delighted to recommend Rose Anne Venus Nerida for their outstanding completion of a 3-week social media marketing internship at Women With Vision &amp; Purpose. Throughout their internship, Rose Anne showcased exceptional dedication, creativity, and a strong commitment to learning. They demonstrated a deep understanding of social media platforms and trends, coupled with a talent for creating engaging content&hellip; Rose Anne proved to be an invaluable team player, seamlessly collaborating with colleagues and contributing positively to group projects. Their strong communication skills, attention to detail, and eagerness to take on additional responsibilities were commendable. I wholeheartedly endorse Rose Anne Venus Nerida for any social media marketing opportunities they pursue.&rdquo;
+        </div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(126,200,240,.15);color:var(--blue)">CD</div>
+          <div>
+            <div class="testi-name">Chiquita Davis</div>
+            <div class="testi-role">CEO &amp; Founder · Women With Vision &amp; Purpose</div>
+            <div class="testi-date">www.wwvp.online · wwvp2017@gmail.com</div>
+          </div>
+        </div>
+        <div class="testi-tags">
+          <span class="testi-tag">Social Media</span>
+          <span class="testi-tag">Content Creation</span>
+          <span class="testi-tag">Team Player</span>
+          <span class="testi-tag">Attention to Detail</span>
+          <span class="testi-tag">Adaptable</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="testi-linkedin fade">
+      <div class="testi-li-left">
+        <div class="testi-li-icon">in</div>
+        <div>
+          <div class="testi-li-label">View full LinkedIn profile &amp; recommendations</div>
+          <div class="testi-li-url">linkedin.com/in/rose-anne-venus-nerida-338b60139</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/rose-anne-venus-nerida-338b60139/" target="_blank" class="testi-li-btn">View Profile ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- REMOTE READINESS -->
+<div class="remote-band">
+  <div class="remote-inner">
+    <div class="fade">
+      <div class="s-label">Remote Ready</div>
+      <h2 class="s-title">Set up for<br>serious work.</h2>
+      <p class="s-sub">Fully equipped for remote roles across PH, US, and UK time zones — full-time or part-time, no disruptions.</p>
+      <div class="avail-pills">
+        <span class="apill">🇵🇭 PH Time</span>
+        <span class="apill">🇺🇸 EST / PST</span>
+        <span class="apill">🇬🇧 GMT</span>
+        <span class="apill">Full-time</span>
+        <span class="apill">Part-time</span>
+        <span class="apill">Flexible</span>
+      </div>
+    </div>
+    <div class="rb-list fade">
+      <div class="rbcard"><div class="rb-icon">📶</div><div><div class="rb-lbl">Primary Internet</div><div class="rb-val">Converge Fiber · 400 Mbps</div></div></div>
+      <div class="rbcard"><div class="rb-icon">📡</div><div><div class="rb-lbl">Backup Connection</div><div class="rb-val">Globe Prepaid WiFi</div></div></div>
+      <div class="rbcard"><div class="rb-icon">💻</div><div><div class="rb-lbl">Equipment</div><div class="rb-val">Acer Laptop i5 · HD Webcam · Noise-cancelling Headset</div></div></div>
+      <div class="rbcard"><div class="rb-icon">🕐</div><div><div class="rb-lbl">Availability</div><div class="rb-val">Full-time or Part-time · Flexible timezone</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="contact-grid">
+      <div class="fade">
+        <div class="s-label">Contact</div>
+        <h2 class="s-title">Let's work<br>together.</h2>
+        <p class="s-sub">Looking for billing support, expense management, a senior VA, or someone who can own an entire admin function? Open to remote roles — full-time, part-time, or project-based.</p>
+        <div class="ci-list">
+          <div class="ci"><div class="ci-icon">✉</div><div><div class="ci-lbl">Email</div><div class="ci-val">rosenerida@outlook.ph</div></div></div>
+          <div class="ci"><div class="ci-icon">📱</div><div><div class="ci-lbl">Mobile / WhatsApp</div><div class="ci-val">+63 907 813 4928</div></div></div>
+          <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Taguig City, Philippines</div></div></div>
+          <div class="ci"><div class="ci-icon">⏰</div><div><div class="ci-lbl">Availability</div><div class="ci-val">Full-time or Part-time · EST / PST / GMT / PHT</div></div></div>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM — powered by Formspree, delivers to rosenerida@outlook.ph -->
+      <div class="fade">
+        <form class="cform" action="https://formspree.io/f/xbdwazyk" method="POST" id="contactForm">
+          <div class="form-title">● Send a message</div>
+          <div class="fgrid2">
+            <div class="frow"><label>First Name</label><input type="text" name="first_name" placeholder="Jane" required></div>
+            <div class="frow"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
+          </div>
+          <div class="frow"><label>Your Email</label><input type="email" name="email" placeholder="jane@company.com" required></div>
+          <div class="frow">
+            <label>Service Needed</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Billing & Collections Management</option>
+              <option>Accounts Payable & Receivable Processing</option>
+              <option>Expense Management & Budget Tracking</option>
+              <option>Virtual Administrative Support</option>
+              <option>Data Analysis & KPI Reporting</option>
+              <option>Website Building (Wix)</option>
+              <option>Process Improvement & SOPs</option>
+              <option>Team / Admin Operations Management</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="frow"><label>Message</label><textarea name="message" placeholder="Tell me about the role or project — timeline, scope, timezone, budget, anything that helps." required></textarea></div>
+          <!-- Hidden field routes email to Rose -->
+          <input type="hidden" name="_replyto" value="rosenerida@outlook.ph">
+          <input type="hidden" name="_subject" value="New Portfolio Inquiry — Rose Anne Nerida">
+          <button type="submit" class="sub-btn">Send Message →</button>
+          <div class="form-note">
+            
+            
+          </div>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <p>✦ Message sent! Rose will get back to you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">rn() =&gt; portfolio</div>
+  <p>© 2026 Rose Anne Nerida · Senior Admin & Billing Specialist · Taguig City, Philippines</p>
+  <div class="f-links">
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#tools">Tools</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+}), { threshold: 0.07 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+// Project filter
+function filterProj(cat, btn) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.pcard').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+// Form submission (Formspree handles actual email delivery)
+const form = document.getElementById('contactForm');
+const successMsg = document.getElementById('formSuccess');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST', body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    } else {
+      alert('There was an issue sending your message. Please email rosenerida@outlook.ph directly.');
+    }
+  });
+}
+</script>
+</body>
+</html>
